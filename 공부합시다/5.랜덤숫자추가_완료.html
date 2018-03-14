@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title></title>
+        <style>
+            body {
+                font-size: 9pt;
+            }
+
+            #panel {
+                width: 600px;
+                overflow: visible;
+                border: 1px dotted #CCC;
+                font-size: 20px;
+            }
+        </style>
+        <script  type="text/javascript" src="libs/jquery-1.11.0.min.js"></script>
+        <script>
+        var $panel = null;
+        var count = 0;
+        $(document).ready(function() {
+          $panel = $('#panel');
+          setInterval(addNumber, 100);
+        });
+
+        function addNumber() {
+          var $num = $('<span></span>');
+
+          var color = '#' + (parseInt(Math.random() * 0xffffff)).toString(16);
+          var fontSize = (10 + parseInt(Math.random() * 40)) + 'px';
+          count++;
+          $num.text(count);
+          $num.css({
+            fontSize: fontSize,
+            color: color,
+            display: 'inline-block'
+          });
+
+          $panel.append($num);
+          window.scrollTo(0, document.body.scrollHeight);
+        }
+
+        </script>
+    </head>
+    <body>
+        <div id="panel">
+        </div>
+    </body>
+</html>

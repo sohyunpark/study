@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD Xhtml 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html>
+    <head>
+        <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+        <title></title>
+        <style>
+            body {
+                font-size: 9pt;
+                font-family: '굴림';
+            }
+            div, p, ul, li {
+
+            }
+            ul.menu {
+                padding: 10px;
+                list-style: none;
+                border: 1px #000 solid;
+            }
+            ul.menu li {
+                border: 1px #eeeeee solid;
+                margin: 10px;
+            }
+
+            li.select {
+                background-color: #ccc;
+            }
+        </style>
+
+        <script type='text/javascript'  src='libs/jquery-1.11.0.min.js'></script>
+        <script>
+            /*
+            미션07 – 선택한 메뉴 아이템 위치를 아래로 이동
+            마지막 미션이군요. 이번 미션은 선택 메뉴 아이템을 아래로 이동시키는 기능 구현입니다.
+            선택 메뉴 아이템이 있는 상태에서 아래(#down) 버튼을 누르면
+            선택 메뉴 아이템이 아래로 이동되게 만들어주세요.
+
+            */
+        </script>
+    </head>
+
+    <body>
+        <div>
+            <input type='text' id='menuName' />
+            <button id='add'>
+                추가
+            </button>
+            <button id='update'>
+                수정
+            </button>
+            <button id='remove'>
+                삭제
+            </button>
+            <button id='up'>
+                UP
+            </button>
+            <button id='down'>
+                DOWN
+            </button>
+
+        </div>
+        <ul class='menu'>
+
+        </ul>
+    </body>
+
+</html>

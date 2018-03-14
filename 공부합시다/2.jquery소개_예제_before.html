@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title> </title>
+    <style>
+        body{
+            font-size:9pt;
+            font-family:"굴림";
+        }
+        div, p, ul, li{
+            border:1px #eeeeee solid;
+            margin:10px;
+        }
+        ul {
+         padding:10px;
+        }
+        li.select {
+            background-color:#ccc;
+        }
+    </style>
+    <script src="../libs/jquery-1.11.0.min.js"></script>
+    <script>
+    $(document).ready(function(){
+
+      // p 태그의 갯수 찾기
+      var $test_1 = $('p');
+      console.log("p 태그의 갯수 : "+$test_1.length);
+
+      // ul의 자식의 갯수 찾기
+      var $test_2 = $('ul');
+      console.log("li 태그 자식노드의 갯수 : "+$test_2.children().length);
+
+      // 모든 자식 노드 찾기 , 스타일 바꾸기
+      var $test_3 = $('#content');
+      console.log("content <div>의 모든 노드 " + $test_3.children());
+      $test_3.children().css({"color": "red", "border": "2px solid red"});
+
+      // 특정 자식 노드 찾기, div의 2번째 자식 노드 찾기
+      var $test_4 = $('div');
+      $test_4.children().eq(1).css({"color": "blue", "border": "2px solid red"});
+      $test_4.children().[1].css({"color": "black", "border": "2px solid red"});
+      // $test_4.children("second").css({{"color": "blue", "border": "2px solid red"}});
+      // $test_4.children(":second").css({{"color": "blue", "border": "2px solid red"}});
+    });
+    </script>
+</head>
+
+<body>
+  <div id="samplePage" class="page" >
+    샘플 페이지(div, id=samplePage, class=page)
+    <div id="header">
+        헤더 영역(div, id=header)
+    </div>
+    <div id="content" class="sample-content">
+      노드 찾기(div, id=content, class=sample-content)
+      <ul class="menu">
+        일반 노드 찾기(ul, class=menu)
+        <li data-value="1">
+          id로 찾기(li, data-value=1)
+        </li>
+        <li class="select">
+          tag로 찾기(li, class=select)
+        </li>
+        <li data-value="2">
+          class로 찾기(li, data-value=2)
+        </li>
+        <li class="test1">
+          속성으로 찾기(li, class=test1)
+        </li>
+      </ul>
+      <div class="content-data">
+        자식 노드 찾기(div, class=content-data)
+        <p class="test1">
+          1. 모든 자식 노드 찾기(p, class=test1)
+        </p>
+        <p>
+          2. 특정 자식 노드만 찾기(p)
+        </p>
+        <p class="test2">
+          3. 마지막 자식 노드 찾기(p, class=test2)
+        </p>
+      </div>
+    </div>
+    <div id="footer">
+      푸터 영역(div, id=footer)
+    </div>
+  </div>
+</body>
+
+</html>

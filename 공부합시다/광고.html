@@ -1,0 +1,36 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>광고</title>
+  <style>
+  #panel {
+    width: 190px;
+    height: 130px;
+    border: 1px solid black;
+    position: relative;
+    overflow: hidden;
+  }
+  </style>
+  <script type='text/javascript'  src='libs/jquery-1.11.0.min.js'></script>
+  <script>
+  var $img = $('<img />');
+  $(document).ready(function(){
+    setInterval(function(){
+    //  for(var i=0; i<3 ; i++){
+        $('#panel').prepend($img);
+        $img.attr("src","fish1.png").css({
+          'width' : '190px',
+          'height' : '130px',
+          'position' : 'absolute',
+          'top' : '130px'
+        }).animate({top: '-260px'},3000)
+    //  }
+    },4000);
+  });
+  </script>
+</head>
+<body>
+  <div id="panel">
+  </div>
+</body>
+</html>
