@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>캘린더</title>
+    <style>
+      #page-wrapper{
+        width : auto;
+      }
+      #calender {
+        text-align : center;
+      }
+      #calender tr, #calender td{
+        margin : 2px 2px;
+        width : 20px;
+        height : 15px;
+        font-size : 15px;
+      }
+      #calender tr > td:first-child{
+        color : red;
+      }
+      #calender tr > td:last-child{
+        color : blue;
+      }
+    </style>
+    <script src="../libs/jquery-1.11.0.min.js"></script>
+    <script>
+      // 시작일자, 시작일자 요일, 그 달의 마지막 일자
+      //  Date 클래스 활용
+      var $tdArray = null;
+      // td의 마지막 자식 노드에 값 뿌려주기
+      function display(year, month, lastdate, firstday){
+
+        $('#year').text(year + "년" + month + "월");
+
+        $tdArray = $("td:gt("+(firstday+9)+")");
+
+        for(var i=0; i<lastdate ; i++){
+          $tdArray.eq(i).text(i+1);
+        }
+      }
+
+      $('document').ready(function(){
+        var $Date = new Date();
+        var year = $Date.getFullYear();
+        var month = $Date.getMonth()+1;
+        var lastDate = ( new Date(year,month, 0) ).getDate();
+        var CurrentDay = ( new Date(year,month-1,1) ).getDay();
+        console.log(year + "년" + month +"월"+ CurrentDay);
+
+        display(year,month,lastDate,CurrentDay);
+
+        $('#prev').on("click",function(){
+          month -= 1;
+          if(month == 0){
+            year -= 1;
+            month = 12;
+          }
+          lastDate = ( new Date(year,month, 0) ).getDate();
+          CurrentDay = new Date(year,month-1, 1).getDay();
+          $tdArray = $("td:gt(9)");
+          $tdArray.text('');
+          display(year,month,lastDate,CurrentDay);
+        });
+
+        $('#aft').on("click",function(){
+          month += 1;
+          if(month == 13){
+            year += 1;
+            month = 1;
+          }
+          lastDate = ( new Date(year,month, 0) ).getDate();
+          CurrentDay = ( new Date(year,month-1, 1) ).getDay();
+          $tdArray = $("td:gt(9)");
+          $tdArray.text('');
+          display(year,month,lastDate,CurrentDay);
+        });
+
+      });
+    </script>
+  </head>
+  <body>
+    <div id="page-wrapper">
+      <table id="calender">
+        <tr>
+          <td><button id="prev" value="prev">&lt;</button></td>
+          <td id="year" colspan="5"></td>
+          <td><button id="aft" value="aft">&gt;</button></td>
+          </td>
+        </tr>
+        <tr>
+          <td class="Sun">일</td>
+          <td class="Mon">월</td>
+          <td class="Tue">화</td>
+          <td class="Wen">수</td>
+          <td class="Thur">목</td>
+          <td class="Fri">금</td>
+          <td class="Sat">토</td>
+        </tr>
+        <tr>
+          <td class="Sun"></td>
+          <td class="Mon"></td>
+          <td class="Tue"></td>
+          <td class="Wen"></td>
+          <td class="Thur"></td>
+          <td class="Fri"></td>
+          <td class="Sat"></td>
+        </tr>
+        <tr>
+          <td class="Sun"></td>
+          <td class="Mon"></td>
+          <td class="Tue"></td>
+          <td class="Wen"></td>
+          <td class="Thur"></td>
+          <td class="Fri"></td>
+          <td class="Sat"></td>
+        </tr>
+        <tr>
+          <td class="Sun"></td>
+          <td class="Mon"></td>
+          <td class="Tue"></td>
+          <td class="Wen"></td>
+          <td class="Thur"></td>
+          <td class="Fri"></td>
+          <td class="Sat"></td>
+        </tr>
+        <tr>
+          <td class="Sun"></td>
+          <td class="Mon"></td>
+          <td class="Tue"></td>
+          <td class="Wen"></td>
+          <td class="Thur"></td>
+          <td class="Fri"></td>
+          <td class="Sat"></td>
+        </tr>
+        <tr>
+          <td class="Sun"></td>
+          <td class="Mon"></td>
+          <td class="Tue"></td>
+          <td class="Wen"></td>
+          <td class="Thur"></td>
+          <td class="Fri"></td>
+          <td class="Sat"></td>
+        </tr>
+        <tr>
+          <td class="Sun"></td>
+          <td class="Mon"></td>
+          <td class="Tue"></td>
+          <td class="Wen"></td>
+          <td class="Thur"></td>
+          <td class="Fri"></td>
+          <td class="Sat"></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

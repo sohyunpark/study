@@ -1,0 +1,18 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>팝업창</title>
+  <script src="../libs/jquery-1.11.0.min.js"></script>
+  <script>
+  $(document).ready(function(){
+    $('#pop').on("click",function(event){
+      window.open('pop.html','newpop','width=200px, height=200px, left=100px,top=300px,statusbar=yes');
+    });
+  });
+  </script>
+</head>
+<body>
+  <button id="pop">팝업오픈</button>
+  <input type="text" id="txt" />
+</body>
+</html>

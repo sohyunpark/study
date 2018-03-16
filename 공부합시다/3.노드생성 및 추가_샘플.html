@@ -19,13 +19,17 @@
                 background-color: #ccc;
             }
         </style>
-
         <script type="text/javascript"  src="../libs/jquery-1.11.0.min.js"></script>
         <script>
+        var $list = null;
             $(document).ready(function() {
-
+              $list_1 = $('<li>새로 추가해쪄염</li>');
+              $list_2 = $('<li>새로 추가해쪄염</li>');
+              $('#btnAdd').on("click",function(){
+                $('.menu').append($list_1);
+                $('.menu').prepend($list_2);
+              });
             });
-
         </script>
     </head>
     <body>

@@ -3,34 +3,67 @@
   <meta charset="UTF-8">
   <title>광고</title>
   <style>
-  #panel {
+  /* #panel {
     width: 190px;
     height: 130px;
     border: 1px solid black;
     position: relative;
     overflow: hidden;
+  } */
+  #page-wrapper {
+    background: white;
+    width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  #best{
+    margin : 10px 0;
+    width: 550px;
+    height : 350px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+  }
+  #prevbutton{
+    position: absolute;
+    top: 200px;
+    left : 101px;
+  }
+  #aftbutton{
+    position: absolute;
+    top: 200px;
+    left : 672px;
   }
   </style>
   <script type='text/javascript'  src='libs/jquery-1.11.0.min.js'></script>
   <script>
-  var $img = $('<img />');
+
   $(document).ready(function(){
+
+    // 이미지 슬라이드
+    $('img').hide();
+    $('img').first().show();
+    $('img').css({'width' : '550px', 'height' : '350px'});
     setInterval(function(){
-    //  for(var i=0; i<3 ; i++){
-        $('#panel').prepend($img);
-        $img.attr("src","fish1.png").css({
-          'width' : '190px',
-          'height' : '130px',
-          'position' : 'absolute',
-          'top' : '130px'
-        }).animate({top: '-260px'},3000)
-    //  }
-    },4000);
+      $('#best').append($('img').first());
+      $('img').last().hide();
+      $('img').first().slideDown().show();
+    },3000);
+
+    // 메뉴바
+
+
   });
   </script>
 </head>
 <body>
-  <div id="panel">
+  <div id="page-wrapper">
+  <div id="best">
+    <img src="2.png" id="img1"/>
+    <img src="3.png" id="img2"/>
+    <img src="4.png" id="img3"/>
   </div>
+</div>
 </body>
 </html>

@@ -1,0 +1,51 @@
+<html>
+<head>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+  <title>주민등록번호</title>
+  <script src="../libs/jquery-1.11.0.min.js"></script>
+  <script>
+  $(document).ready(function(){
+  //  function registrNumber(){
+      var number = 0;
+      var length = 0;
+
+      $('#rfnum1').on("keyup",function(){
+        number = $(this).val();
+        length = $(this).val().length;
+        if(length > 5){
+          $('#rfnum2').focus();
+        }
+      });
+
+      $('#rfnum2').on("keyup",function(){
+        number = $(this).val();
+        length = $(this).val().length;
+        if(length>7){
+          $(this).val($(this).val().substring(0, 6));
+          console.log(number);
+        }
+      });
+
+      $('#rfnum2').on("keypress",function(e){
+        if(e.whick == 13){
+          $('#chkPerson').trigger('click');
+        }
+      });
+
+      $('#chkPerson').on("click",function(){
+        alert("확인되었습니다.")
+      });
+
+  });
+  </script>
+</head>
+<body>
+  <div>
+    <input type="text" id="rfnum1"/>
+    <span> - </span>
+    <input type="password" id="rfnum2"/>
+  </div>
+  <br><br>
+  <input type="submit" id="chkPerson" value="본인확인"/>
+</body>
+</html>

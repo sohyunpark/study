@@ -48,8 +48,12 @@
         <script src="../libs/jquery-1.11.0.min.js"></script>
 
         <script>
+        var $li = null;
             $(document).ready(function() {
-
+              $li = $('.tab-menu li');
+              $li.on("click",function(){
+                $(this).addClass("select");
+              });
             });
         </script>
 
@@ -77,5 +81,4 @@
             </li>
         </ul>
     </body>
-
 </html>
